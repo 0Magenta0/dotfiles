@@ -63,6 +63,7 @@ let g:airline_symbols.maxlinenr = ''
 
 let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\u2105 %b/%B"
 
+autocmd FileType markdown silent AirlineToggleWhitespace
 
 " Setting YouCompleteMe
 set completeopt-=preview " YCM Disable Preview For TAB Tokens
