@@ -30,9 +30,9 @@ let g:mapleader = "," " Set General <Leader>
 " Toggle Relative Line Numbers
 nnoremap <Leader>n :set rnu!<CR>
 " Place Word In Double-Quotes
-nnoremap <Leader>" lbi"<Esc>ea"<Esc>
+nnoremap <Leader>" viwb<Esc>i"<Esc>ea"<Esc>
 " Place Word In Quotes
-nnoremap <Leader>' lbi'<Esc>ea'<Esc>
+nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
 
 
 " 4-TABs Config
