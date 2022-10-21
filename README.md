@@ -8,7 +8,7 @@ This is list of my configs for common tools that i use.
 
 ## Screenshots
 ### Tmux & Vim
-<img scr="screenshots/tmux-vim.png" align="left" width="1906px">
+![](screenshots/tmux-vim.png?raw=true)
 
 ## LICENSE
 This project uses MIT license.  
