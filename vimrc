@@ -40,10 +40,10 @@ set tabstop=2
 set expandtab
 set smarttab
 
-autocmd FileType asm setlocal tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
-autocmd FileType python setlocal tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
-autocmd FileType vim setlocal tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
-autocmd FileType cmake setlocal tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
+au FileType asm setlocal tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
+au FileType python setlocal tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
+au FileType vim setlocal tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
+au FileType cmake setlocal tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
 
 
 " Setting Airline
@@ -63,7 +63,7 @@ let g:airline_symbols.maxlinenr = ''
 
 let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\u2105 %b/%B"
 
-autocmd FileType markdown silent AirlineToggleWhitespace
+au FileType markdown silent AirlineToggleWhitespace
 
 " Setting YouCompleteMe
 set completeopt-=preview " YCM Disable Preview For TAB Tokens
