@@ -28,7 +28,7 @@ syntax on  " Syntax Highlighting
 let g:mapleader = "," " Set General <Leader>
 
 " Toggle Relative Line Numbers
-nnoremap <Leader>n :set rnu!<Return>
+nnoremap <Leader>n :set rnu!<CR>
 " Place Word In Double-Quotes
 nnoremap <Leader>" lbi"<esc>ea"<esc>
 
