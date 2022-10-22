@@ -36,16 +36,16 @@ nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
 
 
 " 4-TABs Config
-set softtabstop=2
-set shiftwidth=4
-set tabstop=2
-set expandtab
-set smarttab
+se softtabstop=2
+se shiftwidth=4
+se tabstop=2
+se expandtab
+se smarttab
 
-au FileType asm setlocal tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
-au FileType python setlocal tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
-au FileType vim setlocal tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
-au FileType cmake setlocal tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
+au FileType asm setl tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
+au FileType python setl tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
+au FileType vim setl tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
+au FileType cmake setl tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
 
 
 " Setting Airline
