@@ -19,9 +19,10 @@ colorscheme codedark " Set Colorscheme
 set encoding=UTF-8 " Set Vim Encoding To UTF-8
 set nocompatible   " Disable Backward Compatibility With Vi
 
-set number " Show Line Numbers
-set nowrap " No Wrap If Line So Long
-syntax on  " Syntax Highlighting
+set hlsearch " Highlight Search Occurrences
+set number   " Show Line Numbers
+set nowrap   " No Wrap If Line So Long
+syntax on    " Syntax Highlighting
 
 
 " Custom Key-Bindings
@@ -29,10 +30,14 @@ let g:mapleader = "," " Set General <Leader>
 
 " Toggle Relative Line Numbers
 nnoremap <Leader>n :set rnu!<CR>
+" Disable Search Highlighting
+nnoremap <Leader>h :noh<CR>
 " Place Word In Double-Quotes
 nnoremap <Leader>" viwb<Esc>i"<Esc>ea"<Esc>
 " Place Word In Quotes
 nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
+" Enable NERDTree
+nnoremap <Leader>f :NERDTreeToggle<CR>
 
 
 " 4-TABs Config
