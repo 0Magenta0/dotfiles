@@ -26,7 +26,7 @@ syntax on    " Syntax Highlighting
 
 
 " Custom Key-Bindings
-let g:mapleader = "," " Set General <Leader>
+let mapleader = "," " Set General <Leader>
 
 " Toggle Relative Line Numbers
 nnoremap <Leader>n :set rnu!<CR>
