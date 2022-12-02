@@ -1,11 +1,11 @@
 runtime! archlinux.vim
 
-" List Of Plugins
+" List of plugins
 call plug#begin()
   Plug 'tomasiser/vim-code-dark'  " VisualStudio-Style Colorcheme
-  Plug 'vim-airline/vim-airline'  " Better Status Bar
+  Plug 'vim-airline/vim-airline'  " Better status bar
   Plug 'preservim/nerdtree'       " Directory-Tree
-  Plug 'ryanoasis/vim-devicons'   " Extended Icons
+  Plug 'ryanoasis/vim-devicons'   " Extended icons
 
   " Autocomplete
   if ($USER != "root")
@@ -16,44 +16,47 @@ call plug#end()
 " General Settings
 colorscheme codedark " Set Colorscheme
 
-set encoding=UTF-8 " Set Vim Encoding To UTF-8
-set nocompatible   " Disable Backward Compatibility With Vi
+set encoding=UTF-8 " Set Vim encoding to UTF-8
+set nocompatible   " Disable backward compatibility with Vi
 
-set hlsearch " Highlight Search Occurrences
-set number   " Show Line Numbers
-set nowrap   " No Wrap If Line So Long
-syntax on    " Syntax Highlighting
+set hlsearch " Highlight search occurrences
+set number   " Show line numbers
+set nowrap   " No wrap if line so long
+syntax on    " Syntax highlighting
 
 
 " Custom Key-Bindings
-let mapleader = "," " Set General <Leader>
+let mapleader = "," " Set general <Leader>
 
-" Toggle Relative Line Numbers
+" Toggle relative line numbers
 nnoremap <Leader>n :set rnu!<CR>
-" Disable Search Highlighting
+" Disable search highlighting
 nnoremap <Leader>h :noh<CR>
-" Place Word In Double-Quotes
+" Place word in double-quotes
 nnoremap <Leader>" viwb<Esc>i"<Esc>ea"<Esc>
-" Place Word In Quotes
+" Place word in quotes
 nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
 " Enable NERDTree
 nnoremap <Leader>f :NERDTreeToggle<CR>
 
 
 " 4-TABs Config
-se softtabstop=2
-se shiftwidth=4
-se tabstop=2
-se expandtab
-se smarttab
+set softtabstop=1
+set shiftwidth=0
+set tabstop=4
+set expandtab
+set smarttab
 
-aug filetype_tabs
+augroup filetype_tabs
+  " Redefine all autocommands in this group
+  autocmd!
+
   au FileType asm setl tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
   au FileType python setl tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
   au FileType vim setl tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
   au FileType json setl tabstop=1 shiftwidth=2 softtabstop=1   " Json 2-Spaces TAB
   au FileType cmake setl tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
-aug END
+augroup END
 
 " Setting Airline
 let g:airline_left_sep = ''
@@ -72,9 +75,9 @@ let g:airline_symbols.maxlinenr = ''
 
 let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\u2105 %b/%B"
 
-" Disable Whitespace Trailing Check For Markdown Files
+" Disable whitespace trailing check for markdown files
 let g:airline#extensions#whitespace#skip_indent_check_ft = { 'markdown': ['trailing'] }
 
 " Setting YouCompleteMe
-set completeopt-=preview " YCM Disable Preview For TAB Tokens
+set completeopt-=preview " YCM Disable preview for TAB tokens
 
