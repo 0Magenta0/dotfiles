@@ -1,19 +1,21 @@
 runtime! archlinux.vim
 
-" List of plugins
+" -=- List of plugins -=- {{{
 call plug#begin()
   Plug 'tomasiser/vim-code-dark'  " VisualStudio-Style Colorcheme
   Plug 'vim-airline/vim-airline'  " Better status bar
   Plug 'preservim/nerdtree'       " Directory-Tree
   Plug 'ryanoasis/vim-devicons'   " Extended icons
 
-  " Autocomplete
+  " -=- Autocomplete -=- {{{
   if ($USER != "root")
     Plug 'ycm-core/YouCompleteMe', { 'for': ['c', 'cpp', 'cmake', 'go'] }
   endif
+  " }}}
 call plug#end()
+" }}}
 
-" General Settings
+" -=- General Settings -=- {{{
 colorscheme codedark " Set Colorscheme
 
 set encoding=UTF-8 " Set Vim encoding to UTF-8
@@ -23,9 +25,10 @@ set hlsearch " Highlight search occurrences
 set number   " Show line numbers
 set nowrap   " No wrap if line so long
 syntax on    " Syntax highlighting
+" }}}
 
 
-" Custom Key-Bindings
+" -=- Custom Mappings -=- {{{
 let mapleader = "," " Set general <Leader>
 
 " Toggle relative line numbers
@@ -38,15 +41,18 @@ nnoremap <Leader>" viwb<Esc>i"<Esc>ea"<Esc>
 nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
 " Enable NERDTree
 nnoremap <Leader>f :NERDTreeToggle<CR>
+" }}}
 
 
-" 4-TABs Config
+" -=- TABs setting -=- {{{
 set softtabstop=1
 set shiftwidth=0
 set tabstop=4
 set expandtab
 set smarttab
+" }}}
 
+" -=- Autocommands groups -=- {{{
 augroup filetype_tabs
   " Redefine all autocommands in this group
   autocmd!
@@ -58,7 +64,15 @@ augroup filetype_tabs
   au FileType cmake setl tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
 augroup END
 
-" Setting Airline
+augroup filetype_vim
+  " Redefine all autocommands in this group
+  autocmd!
+
+  au FileType vim setl foldmethod=marker
+augroup END
+" }}}
+
+" -=- Setting Airline -=- {{{
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -77,6 +91,7 @@ let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\u2105 %
 
 " Disable whitespace trailing check for markdown files
 let g:airline#extensions#whitespace#skip_indent_check_ft = { 'markdown': ['trailing'] }
+" }}}
 
 " Setting YouCompleteMe
 set completeopt-=preview " YCM Disable preview for TAB tokens
