@@ -47,12 +47,13 @@ se tabstop=2
 se expandtab
 se smarttab
 
-au FileType asm setl tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
-au FileType python setl tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
-au FileType vim setl tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
-au FileType json setl tabstop=1 shiftwidth=2 softtabstop=1   " Json 2-Spaces TAB
-au FileType cmake setl tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
-
+aug filetype_tabs
+  au FileType asm setl tabstop=1 shiftwidth=3 softtabstop=1    " Asm 3-Spaces TAB
+  au FileType python setl tabstop=1 shiftwidth=2 softtabstop=1 " Python 2-Spaces TAB
+  au FileType vim setl tabstop=1 shiftwidth=2 softtabstop=1    " Vim 2-Spaces TAB
+  au FileType json setl tabstop=1 shiftwidth=2 softtabstop=1   " Json 2-Spaces TAB
+  au FileType cmake setl tabstop=1 shiftwidth=2 softtabstop=1  " CMake 2-Spaces TAB
+aug END
 
 " Setting Airline
 let g:airline_left_sep = ''
