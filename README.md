@@ -1,4 +1,4 @@
-# Some \_Magenta\_'s Configs
+# Some 0Magenta0's Configs
 
 This is list of my configs for common tools that i use.
 
@@ -18,5 +18,5 @@ This is list of my configs for common tools that i use.
 
 ## LICENSE
 This project uses MIT license.  
-Copyright (C) 2022 \_Magenta\_
+Copyright (C) 2022 0Magenta0
 
