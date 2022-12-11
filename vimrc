@@ -41,6 +41,8 @@ nnoremap <Leader>" viwb<Esc>i"<Esc>ea"<Esc>
 nnoremap <Leader>' viwb<Esc>i'<Esc>ea'<Esc>
 " Enable NERDTree
 nnoremap <Leader>f :NERDTreeToggle<CR>
+" Insert the ';' at the end
+nnoremap <Leader>; m'A;<Esc>`'
 " }}}
 
 
