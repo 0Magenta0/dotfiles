@@ -10,6 +10,8 @@ This is list of my configs for common tools that i use.
 ```bash
 # curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/tmux.conf -o /etc/tmux.conf
 # curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/vimrc -o /etc/vimrc
+$ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/alacritty.yml -o $HOME/.config/alacritty/alacritty.yml --create-dirs
+$ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/i3-config -o $HOME/.config/i3/config --create-dirs
 ```
 
 ## Screenshots
@@ -18,5 +20,5 @@ This is list of my configs for common tools that i use.
 
 ## LICENSE
 This project uses MIT license.  
-Copyright (C) 2022 0Magenta0
+Copyright (C) 2022-2023 0Magenta0
 
