@@ -102,8 +102,8 @@ focus_wrapping no
     bindsym Mod1+e layout toggle all
 
     # Setup resize mode.
-    bindsym Mod1+r mode "resize"
-    mode "resize" {
+    bindsym Mod1+r mode "Resize"
+    mode "Resize" {
         bindsym h resize shrink width 1 px or 1 ppt
         bindsym j resize grow height 1 px or 1 ppt
         bindsym k resize shrink height 1 px or 1 ppt
