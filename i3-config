@@ -1,5 +1,11 @@
 # i3 config file (v4)
 
+#
+#  https://github.com/0Magenta0/Cfgs
+#  Copyright 0Magenta0 2022-2023
+#  MIT License
+#
+
 # Disable screen save (Works before first `xset dpms force off`).
 exec --release xset -dpms
 exec --release xset s off

@@ -1,5 +1,11 @@
 runtime! archlinux.vim
 
+"
+"  https://github.com/0Magenta0/Cfgs
+"  Copyright 0Magenta0 2022-2023
+"  MIT License
+"
+
 " -=- List of plugins -=- {{{
 call plug#begin()
   Plug 'tomasiser/vim-code-dark'  " VisualStudio-Style Colorcheme
