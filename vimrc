@@ -95,7 +95,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
-let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\u2105 %b/%B"
+let g:airline_section_z = "%p%% %l/%L\uE0A1 %v/%{strwidth(getline('.'))}\uE0A3 %b/%B"
 
 " Disable whitespace trailing check for markdown files
 let g:airline#extensions#whitespace#skip_indent_check_ft = { 'markdown': ['trailing'] }
