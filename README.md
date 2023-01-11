@@ -3,11 +3,11 @@
 This is list of my configs for common tools that i use.
 
 ## Currently Presented
-* [Tmux](https://github.com/tmux/tmux)
-* [Vim](https://www.vim.org)
-* [i3wm](https://github.com/i3/i3)
-* [Alacritty](https://github.com/alacritty/alacritty)
-* [Polybar](https://github.com/polybar/polybar)
+* [Tmux](https://github.com/tmux/tmux) -- (Terminal multiplexer)
+* [Vim](https://www.vim.org) -- (Text editor)
+* [i3wm](https://github.com/i3/i3) -- (Tiling window manager)
+* [Alacritty](https://github.com/alacritty/alacritty) -- (Modern terminal emulator)
+* [Polybar](https://github.com/polybar/polybar) -- (Highly customizalbe status bar)
 
 ## Install
 ```bash
