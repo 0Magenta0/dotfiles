@@ -49,6 +49,9 @@ focus_wrapping no
     # Start a terminal.
     bindsym Ctrl+Mod1+T exec "TERMINAL=alacritty i3-sensible-terminal"
 
+    # Take a screenshot.
+    bindsym --release Print exec "scrot -zfs $HOME/Screenshots/%d-%m-%Y_%H:%M:%S.png"
+
     # Kill focused container.
     bindsym Mod4+Shift+q kill
 
