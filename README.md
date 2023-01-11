@@ -3,8 +3,10 @@
 This is list of my configs for common tools that i use.
 
 ## Currently Presented
-* [Tmux](https://github.com/0Magenta0/Cfgs/blob/master/tmux.conf)
-* [Vim](https://github.com/0Magenta0/Cfgs/blob/master/vimrc)
+* [Tmux](https://github.com/tmux/tmux)
+* [Vim](https://www.vim.org)
+* [i3wm](https://github.com/i3/i3)
+* [Alacritty](https://github.com/alacritty/alacritty)
 
 ## Install
 ```bash
