@@ -27,6 +27,11 @@ bindsym Mod1+d exec --no-startup-id dmenu_run
 for_window [window_role="pop-up"] floating toggle
 for_window [window_role="pop-up"] move position center
 
+# Move all Qemu windows to 8th workspace.
+for_window [instance="qemu"] floating toggle
+for_window [instance="qemu"] move position center
+assign [instance="qemu"] number 8
+
 # Borders configure.
 default_border pixel 2
 gaps inner 10
