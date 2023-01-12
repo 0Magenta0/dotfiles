@@ -16,11 +16,13 @@ This is list of my configs for common tools that i use.
 $ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/alacritty.yml -o $HOME/.config/alacritty/alacritty.yml --create-dirs
 $ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/i3-config -o $HOME/.config/i3/config --create-dirs
 # curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/polybar-config.ini -o /etc/polybar/config.ini --create-dirs
+$ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/bashrc -o $HOME/.bashrc
+# curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/bashrc -o /root/.bashrc
 ```
 
 ## Screenshots
 ### Tmux & Vim
-![](screenshots/tmux-vim.png?raw=true)
+![](screenshots/screenshot.png?raw=true)
 
 ## LICENSE
 This project uses MIT license.  
