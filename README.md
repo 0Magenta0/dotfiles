@@ -21,7 +21,7 @@ $ curl https://raw.githubusercontent.com/0Magenta0/Cfgs/master/bashrc -o $HOME/.
 ```
 
 ## Screenshots
-### Tmux & Vim
+### All in one
 ![](screenshots/screenshot.png?raw=true)
 
 ## LICENSE
