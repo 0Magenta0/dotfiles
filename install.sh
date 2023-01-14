@@ -32,6 +32,11 @@ function copy_config() {
 echo -e "[\x1B[36m*\x1B[0m] Getting enough privileges..."
 echo -e "[\x1B[32m+\x1B[0m] Now we can use `sudo whoami`!"
 
+echo -e "\n----========----\n"
+echo -e "[\x1B[36m*\x1B[0m] Setting timezone to Europe/Moscow..."
+sudo ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+
+echo -e "\n----========----\n"
 echo -e "[\x1B[36m*\x1B[0m] Installing all configs..."
 copy_config "tmux.conf" "/etc/tmux.conf" 1
 copy_config "vimrc" "/etc/vimrc" 1
