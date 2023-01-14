@@ -47,5 +47,5 @@ copy_config "bashrc" "$HOME/.bashrc" 0
 copy_config "bashrc" "`sudo bash -c 'echo ~'`/.bashrc" 1
 
 echo -e "\n----========----\n"
-echo -e "[\x1B[32m+\x1B[0m] Installation is ended! Success: \x1B[32m$COUNT_SUCCESSFUL\x1B[0m | Failed: \x1B[31m$COUNT_FAILED\x1B[32m"
+echo -e "[\x1B[32m+\x1B[0m] Installation is ended! Success: \x1B[32m$COUNT_SUCCESSFUL\x1B[0m | Failed: \x1B[31m$COUNT_FAILED\x1B[0m"
 
