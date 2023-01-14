@@ -43,6 +43,9 @@ check_return
 echo -en "[\x1B[36m*\x1B[0m] Installing some fonts... "
 sudo pacman -S --noconfirm ttf-hack-nerd ttf-droid ttf-dejavu &>/dev/null
 check_return
+echo -en "[\x1B[36m*\x1B[0m] Installing scrot package... "
+sudo pacman -S --noconfirm scrot &>/dev/null
+check_return
 
 echo -e "\n----========----\n"
 echo -e "[\x1B[36m*\x1B[0m] Installing all configs..."
