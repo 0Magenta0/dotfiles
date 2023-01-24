@@ -52,7 +52,7 @@ focus_wrapping no
     bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
     # Start a terminal.
-    bindsym Ctrl+Mod1+T exec "TERMINAL=alacritty i3-sensible-terminal"
+    bindsym Ctrl+Mod1+T exec "TERMINAL=xterm-256color i3-sensible-terminal"
 
     # Take a screenshot.
     bindsym --release Print exec "scrot -zfs $HOME/Screenshots/%d-%m-%Y_%H:%M:%S.png"
