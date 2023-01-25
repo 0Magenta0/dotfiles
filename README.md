@@ -1,8 +1,8 @@
-# Some 0Magenta0's Configs
+# Some 0Magenta0's dotfiles
 
 This is list of my configs for common tools that i use.
 
-## Currently Presented
+## Currently presented
 * [Tmux](https://github.com/tmux/tmux) -- (Terminal multiplexer)
 * [Vim](https://www.vim.org) -- (Text editor)
 * [i3wm](https://github.com/i3/i3) -- (Tiling window manager)
