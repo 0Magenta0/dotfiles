@@ -24,7 +24,10 @@ call plug#end()
 " -=- General Settings -=- {{{
 colorscheme codedark " Set Colorscheme
 
-set encoding=UTF-8 " Set Vim encoding to UTF-8
+if has("multi_byte")
+  set encoding=UTF-8 " Set Vim encoding to UTF-8
+endif
+
 set nocompatible   " Disable backward compatibility with Vi
 
 set number   " Show line numbers
