@@ -27,10 +27,14 @@ colorscheme codedark " Set Colorscheme
 set encoding=UTF-8 " Set Vim encoding to UTF-8
 set nocompatible   " Disable backward compatibility with Vi
 
-set hlsearch " Highlight search occurrences
 set number   " Show line numbers
 set nowrap   " No wrap if line so long
-syntax on    " Syntax highlighting
+
+" Enable this settings only when terminal supports a colours
+if &t_Co > 1
+  set hlsearch " Highlight search occurrences
+  syntax on    " Syntax highlighting
+endif
 " }}}
 
 
