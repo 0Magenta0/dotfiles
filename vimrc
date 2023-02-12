@@ -40,7 +40,6 @@ if &t_Co > 1
 endif
 " }}}
 
-
 " -=- Custom Mappings -=- {{{
 let mapleader = "," " Set general <Leader>
 
@@ -57,7 +56,6 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 " Insert the ';' at the end
 nnoremap <Leader>; m'A;<Esc>`'
 " }}}
-
 
 " -=- TABs setting -=- {{{
 set softtabstop=1
