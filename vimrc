@@ -38,6 +38,9 @@ if &t_Co > 1
   set hlsearch " Highlight search occurrences
   syntax on    " Syntax highlighting
 endif
+
+" Expand list of less-important files
+set suffixes+=.a,.bin,.dat,.so
 " }}}
 
 " -=- Custom Mappings -=- {{{
