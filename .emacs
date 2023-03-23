@@ -18,3 +18,7 @@
 ; scroll step to one line.
 (setq scroll-conservatively 1)
 
+; Disable cursor blinking
+; in NoWindow Emacs.
+(setq visible-cursor nil)
+
