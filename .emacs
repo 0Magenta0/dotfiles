@@ -25,3 +25,6 @@
 ; Enable line numbers
 ; drawing in relative mode.
 (global-display-line-numbers-mode 1)
+
+; Disable line wrapping.
+(set-default 'truncate-lines t)
