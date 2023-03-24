@@ -22,3 +22,6 @@
 ; in NoWindow Emacs.
 (setq visible-cursor nil)
 
+; Enable line numbers
+; drawing in relative mode.
+(global-display-line-numbers-mode 1)
