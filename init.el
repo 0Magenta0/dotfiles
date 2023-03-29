@@ -34,3 +34,7 @@
 ; reading quoted char
 ; instead of Octal.
 (setq read-quoted-char-radix 16)
+
+; Add new line when trying
+; C-n at the end of buffer.
+(setq next-line-add-newlines t)
