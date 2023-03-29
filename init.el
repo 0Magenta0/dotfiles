@@ -38,3 +38,7 @@
 ; Add new line when trying
 ; C-n at the end of buffer.
 (setq next-line-add-newlines t)
+
+; Show symbol name
+; when C-x =.
+(setq what-cursor-show-names t)
