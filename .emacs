@@ -29,3 +29,8 @@
 
 ; Disable line wrapping.
 (set-default 'truncate-lines t)
+
+; Use HEX values for
+; reading quoted char
+; instead of Octal.
+(setq read-quoted-char-radix 16)
