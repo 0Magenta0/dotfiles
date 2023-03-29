@@ -24,7 +24,7 @@
 
 ; Enable line numbers
 ; drawing in relative mode.
-(global-display-line-numbers-mode 1)
+(global-display-line-numbers-mode t)
 (setq display-line-numbers 'relative)
 
 ; Disable line wrapping.
@@ -42,3 +42,8 @@
 ; Show symbol name
 ; when C-x =.
 (setq what-cursor-show-names t)
+
+; Automatically disable
+; repeat-mode after
+; two seconds timeout.
+(setq repeat-exit-timeout 2)
