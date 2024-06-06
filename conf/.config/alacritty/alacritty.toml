@@ -1,0 +1,109 @@
+[colors.bright]
+black = "#666666"
+blue = "#3B8EEA"
+cyan = "#29B8DB"
+green = "#23D18B"
+magenta = "#D670D6"
+red = "#F14C4C"
+white = "#E5E5E5"
+yellow = "#F5F543"
+
+[colors.normal]
+black = "#000000"
+blue = "#2472C8"
+cyan = "#11A8CD"
+green = "#26A269"
+magenta = "#BC3FBC"
+red = "#C01C28"
+white = "#DCDCDC"
+yellow = "#D6B92E"
+
+[colors.primary]
+background = "#191929"
+foreground = "#C5C5C5"
+
+[colors.selection]
+background = "#565656"
+text = "CellForeground"
+
+[debug]
+highlight_damage = false
+render_timer = false
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+builtin_box_drawing = true
+size = 11
+
+[font.bold]
+family = "JetBrainsMonoNL NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMonoNL NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMonoNL NF"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMonoNL NF"
+style = "Regular"
+
+[hints]
+alphabet = "hjkl"
+
+[[keyboard.bindings]]
+action = "None"
+key = "F"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "B"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "NumpadSubtract"
+mods = "Control"
+
+[scrolling]
+history = 30000
+
+[window]
+title = "Shell"
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
