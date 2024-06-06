@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+
+# -=[ Imports ]=- #
+source lib/common
+
+
+# -=[ Functions ]=- #
+# Prepares the /boot directory in the newly installed system.
+#
+# f_prepare_boot $mnt_path $disk $cpu_microcode
+f_prepare_boot() {
+  arch-chroot "$1" bootctl install
+  f_cp conf/boot "$1"
+  tee "${1}/boot/loader/entries/arch.conf" << EOF
+title   Arch
+linux   /vmlinuz-linux
+initrd  /${3}.img
+initrd  /initramfs-linux.img
+options rd.luks.name=$(blkid -s UUID -o value "$2")=cryptroot root=/dev/mapper/cryptroot rw quiet nvidia_drm.modeset=1
+EOF
+}
+
+# Prepares the /etc directory in the newly installed system.
+#
+# f_prepare_etc $mnt_path
+f_prepare_etc() {
+  f_cp conf/etc "$1"
+}

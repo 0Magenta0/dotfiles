@@ -1,0 +1,173 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+
+# -=[ Variables ]=- #
+SUCCESS=0
+FAILURE=1
+
+DT_FMT='%d.%m.%y %H:%M:%S'
+LOGS_F=${LOGS_F:-/tmp/setup.log}
+
+_BLUE='\e[34m'
+_RED='\e[31m'
+_CL='\e[m'
+
+
+# -=[ Functions ]=- #
+# Prints LOG message and logs it.
+#
+# f_log $msg
+f_log() {
+  echo -e "${_CL}[$(date +"${DT_FMT}")${_BLUE} LOG${_CL}]: ${*}${_CL}"
+  echo "[$(date +"${DT_FMT}") LOG]: ${*}" >> "$LOGS_F"
+}
+
+# Prints ERR message and logs it.
+#
+# f_err $msg
+f_err() {
+  echo -e "${_CL}[$(date +"${DT_FMT}")${_RED} ERR${_CL}]: ${*}${_CL}\n" >&2
+  echo "[$(date +"${DT_FMT}") ERR]: ${*}" >> "$LOGS_F"
+}
+
+# Prints ERR message, logs it and exits.
+#
+# f_err $exit_code $msg
+f_err_e() {
+  f_err "${@:2}"
+  exit "$1"
+}
+
+# This function is called when:
+#   No args are passed
+#   -h option is used
+#   Incorrect usage
+#
+# f_usage $exit_code $help_msg
+f_usage() {
+  echo "${@:2}" >&2
+  exit "$1"
+}
+
+# Recursively copies $src to the $dest
+#
+# f_cp $src $dest
+f_cp() {
+  cp -R "$1" "$2"
+}
+
+# TODO: REFACTOR
+# Returns $SUCSESS if:
+#   Directory exists
+#   Directory not empty
+#   Files in directory is not empty (Ignores hidden)
+#   Have permissions to files
+#   No any `find' errors returned
+# otherwise $FAILURE.
+#
+# f_dir_chk $dir
+f_dir_chk() {
+  local _find_out
+
+  _find_out="$(find "${1}/"* -type f -empty -name ".*" -prune -o -print 2>&1)"
+  local _ret_val=$?
+
+  if [[ -z $_find_out ]] || [[ $_ret_val -ne $SUCCESS ]]; then
+    return $FAILURE
+  else
+    return $SUCCESS
+  fi
+}
+
+# TODO: REFACTOR
+# Sources all files in specified directory.
+#
+# f_source_all $path
+f_source_all() {
+  if ! f_dir_chk "$1"; then
+    f_err "Cannot source from ${1}"
+    exit $FAILURE
+  fi
+
+  for f in "${1}/"*; do
+    . "$f"
+  done
+}
+
+# Executes passed command quitely.
+#
+# f_quiet $cmd [$args]
+f_quiet() {
+  "$@" >/dev/null 2>&1
+}
+
+# Runs a `type' builtin quietly.
+#
+# f_type $token
+f_type() {
+  f_quiet type "$1"
+}
+
+# Executes passed command quietly and logs output to the file.
+#
+# f_exec $cmd [$args]
+f_exec() {
+  f_log "Exec: ${*}" >/dev/null
+  if ! echo "$@" | bash >> "$LOGS_F" 2>&1; then
+    f_err_e 1 "Execution failed... See ${LOGS_F} for details"
+  fi
+}
+
+# Moves to the specified directory.
+#
+# cd [$path]
+f_cd() {
+  f_log "Moving to: ${1}" >/dev/null
+  cd "$1" ||
+    f_err_e 1 "Directory switching failed... See ${LOGS_F} for details"
+}
+
+# Prints the $1 seconds in time format.
+#
+# f_seconds_to_time $sec
+f_seconds_to_time() {
+  printf "%02d:%02d:%02d\n" \
+    "$(($1 / 3600))"        \
+    "$(($1 % 3600 / 60))"   \
+    "$(($1 % 60))"
+}
+
+# Records the time this function was called and displays starting task.
+#
+# f_start_time $task
+f_start_time() {
+  START_TIME=$(date +%s)
+
+  f_log "Starting ${1} task..."
+}
+
+# Displays the time for which the script has completed it's execution.
+f_end_time() {
+  END_TIME=$(date +%s)
+
+  f_log "Done for $(f_seconds_to_time $((END_TIME - START_TIME)))"
+}
+
+# TODO: REFACTOR
+# Checks if disk is present in the system.
+# Returns $SUCSESS if:
+#   if $dev is a block device
+# otherwise $FAILURE.
+#
+# f_check_disk $dev
+f_check_disk() {
+    if [[ ! -b $1 ]]; then
+      f_err_e 1 "${1} is not a block device"
+    fi
+}

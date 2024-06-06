@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+
+# -=[ Imports ]=- #
+source lib/common
+
+
+# -=[ Functions ]=- #
+# Creates new system with certain packages in mountpoint.
+#
+# f_pacstrap $mnt_path $packages[]
+f_pacstrap() {
+  f_exec pacstrap -K "$1" "${@:2}"
+}
+
+# Installs certain packages in the newly created system.
+#
+# f_pacman_install $mnt_path $packages[]
+f_pacman_install() {
+  arch-chroot "$1" pacman -S "${@:2}"
+}
