@@ -11,6 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+-- require('lazy').setup('plugin')
 require('lazy').setup({
   spec = {
     import = 'plugin'
@@ -21,7 +22,7 @@ require('lazy').setup({
 require("telescope").setup {
   extensions = {
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
+      require("telescope.themes").get_cursor {
         -- even more opts
       }
     }
@@ -51,8 +52,8 @@ cmp.setup({
     end,
   },
   window = {
-    -- completion = require('cmp').config.window.bordered(),
-    -- documentation = require('cmp').config.window.bordered(),
+    completion = require('cmp').config.window.bordered(),
+    documentation = require('cmp').config.window.bordered(),
   },
   mapping = require('cmp').mapping.preset.insert({
     ['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
