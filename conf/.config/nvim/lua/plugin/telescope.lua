@@ -3,9 +3,11 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep,  { noremap = true, silent = true })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers,    { noremap = true, silent = true })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags,  { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>ff', builtin.find_files,      { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>fg', builtin.live_grep,       { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>fb', builtin.buffers,         { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>fh', builtin.help_tags,       { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>fk', builtin.keymaps,         { noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>fd', builtin.lsp_definitions, { noremap = true, silent = true })
   end
 }
