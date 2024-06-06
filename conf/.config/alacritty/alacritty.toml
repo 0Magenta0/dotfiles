@@ -104,6 +104,7 @@ history = 30000
 [window]
 title = "Shell"
 
-[cursor]
-style = { shape = "Block", blinking = "Never" }
+[cursor.style]
+shape = "Block"
+blinking = "Never"
 
