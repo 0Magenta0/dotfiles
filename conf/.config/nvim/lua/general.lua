@@ -1,4 +1,4 @@
-vim.g.mapleadr = ',' -- Leader key.
+vim.g.mapleader = ',' -- Leader key.
 
 vim.o.number         = true  -- Enable line numbers.
 vim.o.relativenumber = true  -- Relative line numbers.
