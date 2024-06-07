@@ -29,13 +29,16 @@ declare -r HELP_MSG="\
 
     -y Installation confirmation.
 "
-TMP_MNT=
-CPU_MIC=
+TMP_MNT='/mnt/'
+CPU_MIC='amd-ucode'
 CONFIRM=NO
 
 
 # -=[ Main ]=- #
-# TODO: CHECK SYSTEM
+if ! f_check_system; then
+  f_err_e 3 'Must run as root under ArchIso'
+fi
+
 while getopts ":hM:m:y" opt; do
   case $opt in
     h)

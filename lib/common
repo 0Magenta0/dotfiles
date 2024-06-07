@@ -62,30 +62,24 @@ f_cp() {
   cp -R "$1" "$2"
 }
 
-# TODO: REFACTOR
-# Returns $SUCSESS if:
+# Returns $SUCCESS if:
 #   Directory exists
 #   Directory not empty
 #   Files in directory is not empty (Ignores hidden)
 #   Have permissions to files
-#   No any `find' errors returned
 # otherwise $FAILURE.
 #
 # f_dir_chk $dir
 f_dir_chk() {
-  local _find_out
+  for f in "${1}"/*; do
+    if [[ ! -r $f ]] || [[ ! -s $f ]]; then
+      return $FAILURE
+    fi
+  done
 
-  _find_out="$(find "${1}/"* -type f -empty -name ".*" -prune -o -print 2>&1)"
-  local _ret_val=$?
-
-  if [[ -z $_find_out ]] || [[ $_ret_val -ne $SUCCESS ]]; then
-    return $FAILURE
-  else
-    return $SUCCESS
-  fi
+  return $SUCCESS
 }
 
-# TODO: REFACTOR
 # Sources all files in specified directory.
 #
 # f_source_all $path
@@ -161,7 +155,7 @@ f_end_time() {
 
 # TODO: REFACTOR
 # Checks if disk is present in the system.
-# Returns $SUCSESS if:
+# Returns $SUCCESS if:
 #   if $dev is a block device
 # otherwise $FAILURE.
 #
@@ -170,4 +164,17 @@ f_check_disk() {
     if [[ ! -b $1 ]]; then
       f_err_e 1 "${1} is not a block device"
     fi
+}
+
+# Check if it's running on ArchIso.
+# Returns $SUCCESS if true
+# otherwise $FAILURE.
+#
+# f_check_system
+f_check_system() {
+  if [[ $(cat /etc/hostname) = 'archiso' ]] && [[ $(id -u) -eq 0 ]]; then
+    return $SUCCESS
+  else
+    return $FAILURE
+  fi
 }
