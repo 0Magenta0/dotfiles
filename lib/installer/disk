@@ -19,6 +19,7 @@ source lib/common
 #
 # f_prepare_disk $dev $crypt_root_name $mnt_path $crypt_key
 f_prepare_disk() {
+  f_log 'Preparing disk'
   f_exec parted --script "/dev/${1}" \
     mklabel gpt                      \
     mkpart EFI fat32 1MiB 1025MiB    \

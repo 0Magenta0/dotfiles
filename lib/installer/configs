@@ -17,6 +17,7 @@ source lib/common
 #
 # f_prepare_boot $mnt_path $disk $cpu_microcode
 f_prepare_boot() {
+  f_log 'Preparing /boot'
   arch-chroot "$1" bootctl install
   f_cp conf/boot "$1"
   f_exec echo "'\
@@ -32,6 +33,8 @@ options rd.luks.name=$(blkid -s UUID -o value "/dev/${2}2")=cryptroot root=/dev/
 #
 # f_prepare_etc $mnt_path
 f_prepare_etc() {
+  f_log 'Preparing /etc'
   f_cp conf/etc "$1"
   f_exec genfstab -U "$3" '>>' "${3}/etc/fstab"
+  f_exec_t chmod 440 "${3}/etc/sudoers"
 }

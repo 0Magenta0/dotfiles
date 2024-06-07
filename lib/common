@@ -15,6 +15,7 @@ DT_FMT='%d.%m.%y %H:%M:%S'
 LOGS_F=${LOGS_F:-/tmp/arch-setup.log}
 
 _BLUE='\e[34m'
+_ORANGE='\e[33m'
 _RED='\e[31m'
 _CL='\e[m'
 
@@ -25,6 +26,14 @@ _CL='\e[m'
 # f_log $msg
 f_log() {
   echo -e "${_CL}[$(date +"${DT_FMT}")${_BLUE} LOG${_CL}]: ${*}${_CL}"
+  echo "[$(date +"${DT_FMT}") LOG]: ${*}" >> "$LOGS_F"
+}
+
+# Prints WARN message and logs it.
+#
+# f_warn $msg
+f_warn() {
+  echo -e "${_CL}[$(date +"${DT_FMT}")${_ORANGE} WARN${_CL}]: ${*}${_CL}"
   echo "[$(date +"${DT_FMT}") LOG]: ${*}" >> "$LOGS_F"
 }
 
@@ -118,6 +127,17 @@ f_exec() {
   fi
 }
 
+# Executes passed command quietly and logs output to the file.
+# Tolerance to error.
+#
+# f_exec_t $cmd [$args]
+f_exec_t() {
+  f_log "Exec: ${*}" >/dev/null
+  if ! echo "$@" | bash >> "$LOGS_F" 2>&1; then
+    f_warn "Something failed... See ${LOGS_F} for details"
+  fi
+}
+
 # Moves to the specified directory.
 #
 # cd [$path]
@@ -161,9 +181,9 @@ f_end_time() {
 #
 # f_check_disk $dev
 f_check_disk() {
-    if [[ ! -b $1 ]]; then
-      f_err_e 1 "${1} is not a block device"
-    fi
+  if [[ ! -b $1 ]]; then
+    f_err_e 1 "${1} is not a block device"
+  fi
 }
 
 # Check if it's running on ArchIso.
