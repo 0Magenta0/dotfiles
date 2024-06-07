@@ -18,6 +18,6 @@ $_grep_cmd setup.conf
 $_grep_cmd run_checks.sh
 
 # Dirs
-$_grep_cmd checks --exclude "$0"
+$_grep_cmd checks --exclude "$(basename "$0")"
 $_grep_cmd conf
 $_grep_cmd lib

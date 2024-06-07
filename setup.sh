@@ -86,12 +86,7 @@ f_end_time
 # hwclock --systohc
 # locale-gen
 # /etc/hostname
-# mkinitcpio -P
 # passwd
-# mkinitcpio.conf -> systemd keyboard sd-encrypt (?udev?)
-# /boot/loader/entries/arch.conf -> rd.luks.name=device-UUID=root root=/dev/mapper/root
-# lsblk -f / blkid
-#
-# blkid -s UUID -o value /dev/sda2
-# lsblk -dno UUID /dev/sda2
+# mkinitcpio.conf -> systemd keyboard sd-encrypt
+# mkinitcpio -P
 
