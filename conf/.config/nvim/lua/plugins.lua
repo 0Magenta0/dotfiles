@@ -110,4 +110,6 @@ require('lspconfig')['gopls'].setup {
 require('lspconfig')['pylsp'].setup {
   capabilities = capabilities
 }
-
+require('lspconfig')['omnisharp'].setup {
+  capabilities = capabilities
+}
