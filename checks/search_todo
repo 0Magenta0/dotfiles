@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+
+# -=[ Variables ]=- #
+_grep_cmd='grep -nR --color=auto TODO:'
+
+
+# -=[ Main ]=- #
+# Files
+$_grep_cmd setup.sh
+$_grep_cmd setup.conf
+$_grep_cmd run_checks.sh
+
+# Dirs
+$_grep_cmd checks --exclude "$0"
+$_grep_cmd conf
+$_grep_cmd lib

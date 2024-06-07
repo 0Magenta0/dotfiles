@@ -1,0 +1,115 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+# shellcheck disable=SC3060,SC3037 # FreeBSD only script.
+
+shopt -s dotglob
+shopt -s extglob
+
+
+# -=[ Imports ]=- #
+source lib/common
+
+
+# -=[ Variables ]=- #
+LICENSE_TEXT="\
+{#}
+{#}  https://github.com/0Magenta0/dotfiles
+{#}  Copyright 0Magenta0 2022-2024
+{#}  MIT License
+{#}"
+
+_BLACKLIST="\
+  conf/boot/loader/loader.conf
+"
+
+_TMP_LICENSE=
+
+
+# -=[ Functions ]=- #
+# Returns $SUCCESS if the file is not in list, otherwise $FAILURE.
+#
+# check_blacklist $file
+check_blacklist() {
+  for f in $_BLACKLIST; do
+    if [[ $f = "$1" ]]; then
+      return "$FAILURE"
+    fi
+  done
+}
+
+
+# Replaces `{#}' placeholder to specified comment token.
+#
+# replace_comment $token
+replace_comment() {
+  _TMP_LICENSE=${LICENSE_TEXT//\{\#\}/$1}
+}
+
+# Compares file head with specified license text.
+#
+# compare_head $n $file
+compare_head() {
+  if [[ $(head -n "$1" "$2") != "$_TMP_LICENSE" ]]; then
+    f_err "license comment not matched in ${2}!"
+  fi
+}
+
+# Checks license in specified files.
+#
+# license_check [$path ...]
+license_check() {
+  while [[ $# -ne 0 ]]; do
+    if [[ -d $1 ]]; then
+      if [[ -n $(ls -aA "$1") ]]; then
+        _new_dir=$1
+        shift
+        set "$_new_dir/"* "$@"
+      else
+        shift
+      fi
+    else
+      if ! check_blacklist "$1"; then
+        shift
+        continue
+      fi
+      case $1 in
+         *.lua)
+               replace_comment '--'
+               compare_head 5 "$1"
+               ;;
+        *.conf)
+               replace_comment '#'
+               compare_head 5 "$1"
+               ;;
+             *)
+               if [ "$(head -n 1 "$1")" = '#!/bin/bash' ]; then
+                 replace_comment '#'
+                 _TMP_LICENSE="$(echo -e "#!/bin/bash\n\n${_TMP_LICENSE}")"
+                 compare_head 7 "$1"
+               else
+                 replace_comment '#'
+                 compare_head 5 "$1"
+               fi
+      esac
+      shift
+    fi
+  done
+}
+
+
+# -=[ Main ]=- #
+# Files
+license_check setup.sh
+license_check setup.conf
+license_check run_checks.sh
+
+# Dirs
+license_check checks
+license_check conf
+license_check lib

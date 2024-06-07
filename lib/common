@@ -12,7 +12,7 @@ SUCCESS=0
 FAILURE=1
 
 DT_FMT='%d.%m.%y %H:%M:%S'
-LOGS_F=${LOGS_F:-/tmp/setup.log}
+LOGS_F=${LOGS_F:-/tmp/arch-setup.log}
 
 _BLUE='\e[34m'
 _RED='\e[31m'

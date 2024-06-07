@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+#  https://github.com/0Magenta0/dotfiles
+#  Copyright 0Magenta0 2022-2024
+#  MIT License
+#
+
+
+# -=[ Variables ]=- #
+# _sc_cmd='shellcheck -C -e SC3043,SC3037 -e SC1090,SC1091'
+_sc_cmd='shellcheck -C -e SC1090,SC1091'
+
+
+# -=[ Main ]=- #
+# Files
+$_sc_cmd setup.sh
+$_sc_cmd run_checks.sh
+
+# Dirs
+$_sc_cmd checks/*
+$_sc_cmd lib/common
+$_sc_cmd lib/installer/*

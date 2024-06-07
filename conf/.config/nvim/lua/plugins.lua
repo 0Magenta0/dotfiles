@@ -1,3 +1,9 @@
+--
+--  https://github.com/0Magenta0/dotfiles
+--  Copyright 0Magenta0 2022-2024
+--  MIT License
+--
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
