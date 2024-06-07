@@ -12,19 +12,20 @@ source lib/common
 
 
 # -=[ Functions ]=- #
+# TODO: optional nvidia
 # Prepares the /boot directory in the newly installed system.
 #
 # f_prepare_boot $mnt_path $disk $cpu_microcode
 f_prepare_boot() {
   arch-chroot "$1" bootctl install
   f_cp conf/boot "$1"
-  tee "${1}/boot/loader/entries/arch.conf" << EOF
+  f_exec echo "'\
 title   Arch
 linux   /vmlinuz-linux
 initrd  /${3}.img
 initrd  /initramfs-linux.img
 options rd.luks.name=$(blkid -s UUID -o value "/dev/${2}2")=cryptroot root=/dev/mapper/cryptroot rw quiet nvidia_drm.modeset=1
-EOF
+'" '>' "${1}/boot/loader/entries/arch.conf"
 }
 
 # Prepares the /etc directory in the newly installed system.
@@ -32,4 +33,5 @@ EOF
 # f_prepare_etc $mnt_path
 f_prepare_etc() {
   f_cp conf/etc "$1"
+  f_exec genfstab -U "$3" '>>' "${3}/etc/fstab"
 }

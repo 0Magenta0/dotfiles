@@ -59,7 +59,7 @@ f_usage() {
 #
 # f_cp $src $dest
 f_cp() {
-  cp -R "$1" "$2"
+  cp -r "$1" "$2"
 }
 
 # Returns $SUCCESS if:
