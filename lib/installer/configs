@@ -23,7 +23,7 @@ title   Arch
 linux   /vmlinuz-linux
 initrd  /${3}.img
 initrd  /initramfs-linux.img
-options rd.luks.name=$(blkid -s UUID -o value "$2")=cryptroot root=/dev/mapper/cryptroot rw quiet nvidia_drm.modeset=1
+options rd.luks.name=$(blkid -s UUID -o value "/dev/${2}2")=cryptroot root=/dev/mapper/cryptroot rw quiet nvidia_drm.modeset=1
 EOF
 }
 
