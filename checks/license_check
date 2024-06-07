@@ -6,10 +6,7 @@
 #  MIT License
 #
 
-# shellcheck disable=SC3060,SC3037 # FreeBSD only script.
-
 shopt -s dotglob
-shopt -s extglob
 
 
 # -=[ Imports ]=- #
