@@ -21,7 +21,7 @@ f_pacstrap() {
 
 # Installs certain packages in the newly created system.
 #
-# f_pacman_install $mnt_path $packages[]
+# f_pacman_install $mnt_path $packages[] $cpu_microcode
 f_pacman_install() {
-  f_exec arch-chroot "$1" pacman -S "${@:2}"
+  f_exec arch-chroot "$1" pacman -S "${@:2}" "$3"
 }

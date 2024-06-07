@@ -71,16 +71,13 @@ fi
 f_start_time "$0"
 
 f_check_disk "/dev/${DEVDISK}"
-f_prepare_disk "$DEVDISK" "$CRYPTID" "$TMP_MNT"
-f_pacstrap "$TMP_MNT" "${PKGS[@]}"
+f_prepare_disk "$DEVDISK" "$CRYPTID" "$TMP_MNT" "$CRYPTPS"
+f_pacstrap "$TMP_MNT" "${PKGS[@]}" "$CPU_MIC"
 f_prepare_boot "$TMP_MNT" "$DEVDISK" "$CPU_MIC"
 f_prepare_etc "$TMP_MNT"
 f_pacman_install "$TMP_MNT" "${LIB32_PKGS[@]}"
 
 f_end_time
-
-
-# genfstab -U /mnt >> /mnt/etc/fstab
 
 # In chroot
 # ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
