@@ -26,6 +26,7 @@ M.palette = {
   constant  = '#A6DA95',
   type      = '#E88657',
   directory = '#7D9AFA',
+  filename  = '#A4BFF5',
 
   white = '#FFFFFF',
 }
@@ -54,7 +55,9 @@ function M.style()
   hl(0, 'Constant',  { bg = M.palette.global_bg, fg = M.palette.constant,                         })
   hl(0, 'Type',      { bg = M.palette.global_bg, fg = M.palette.type,      bold = 1               })
   hl(0, 'Operator',  { bg = M.palette.global_bg, fg = M.palette.white,     italic = 1, bold = 1   })
-  hl(0, 'Directory', { bg = M.palette.global_bg, fg = M.palette.directory,                        })
+  hl(0, 'Directory', { bg = M.palette.none, fg = M.palette.directory,                             })
+
+  hl(0, 'NeoTreeFileName', { bg = M.palette.none, fg = M.palette.filename })
 end
 
 function M.setup()
