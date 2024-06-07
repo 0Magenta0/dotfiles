@@ -8,7 +8,8 @@ return {
   'williamboman/mason.nvim',
   opts = {
     ensure_installed = {
-      'csharp-language-server',
+      -- https://github.com/OmniSharp/omnisharp-roslyn/issues/2574
+      'omnisharp',
       'csharpier'
     }
   }

@@ -70,6 +70,7 @@ fi
 
 f_start_time "$0"
 
+f_check_disk "/dev/${DEVDISK}"
 f_prepare_disk "$DEVDISK" "$CRYPTID" "$TMP_MNT"
 f_pacstrap "$TMP_MNT" "${PKGS[@]}"
 f_prepare_boot "$TMP_MNT" "$DEVDISK" "$CPU_MIC"
