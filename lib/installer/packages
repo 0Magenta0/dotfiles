@@ -25,5 +25,5 @@ f_pacstrap() {
 # f_pacman_install $mnt_path $packages[] $cpu_microcode
 f_pacman_install() {
   f_log 'Pacman install'
-  f_exec arch-chroot "$1" pacman -Sy "${@:2}" "$3"
+  f_exec arch-chroot "$1" pacman -Sy --noconfirm "${@:2}" "$3"
 }

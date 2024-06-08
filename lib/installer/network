@@ -29,7 +29,7 @@ Name=${2}
 Address=${3}/24
 Gateway=${4}
 DNS=${6}
-'" '>' "${1}/etc/systemd/networkd/wired.network"
+'" '>' "${1}/etc/systemd/network/wired.network"
 
   f_exec_t echo "'\
 [Resolve]
