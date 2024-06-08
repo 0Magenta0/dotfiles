@@ -16,6 +16,8 @@ source lib/common
 #
 # f_network $mnt $dev $ip $gateway $hostname $dns 
 f_network() {
+  f_log 'Preparing network'
+
   f_exec_t echo "$5" '>' "${1}/etc/hostname"
   f_exec_t echo "nameserver ${6}" '>' "${1}/etc/resolv.conf"
 
