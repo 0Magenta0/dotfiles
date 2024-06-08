@@ -38,3 +38,29 @@ f_prepare_etc() {
   f_exec genfstab -U "$3" '>>' "${3}/etc/fstab"
   f_exec_t chmod 440 "${3}/etc/sudoers"
 }
+
+# Configures some parts of the system.
+#
+# f_prepare_misc $mnt_path $user $password $groups
+f_prepare_misc() {
+  f_log 'Preparing misc'
+  f_exec_t arch-chroot "$1" ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+  f_exec_t arch-chroot "$1" hwclock --systohc
+  f_exec_t arch-chroot "$1" locale-gen
+
+  f_exec_t arch-chroot "$1" mkinitcpio -P
+
+  f_exec_t arch-chroot "$1" useradd -mG "$4" "$2"
+  f_exec_t arch-chroot "$1" echo "${2}:${3}" '|' chpasswd
+  f_exec_t arch-chroot "$1" echo "root:toor" '|' chpasswd
+
+  f_exec_t arch-chroot "$1" systemctl enable --user pipewire
+}
+
+# Prepares the .config directory for certain user.
+#
+# f_prepare_dot_config $mnt_path $user
+f_prepare_dot_config() {
+  f_log "Preparing .config for ${2}"
+  f_cp conf/.config "${1}/home/${2}/"
+}

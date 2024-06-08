@@ -76,6 +76,8 @@ f_pacstrap "$TMP_MNT" "${PKGS[@]}" "$CPU_MIC"
 f_prepare_boot "$TMP_MNT" "$DEVDISK" "$CPU_MIC"
 f_prepare_etc "$TMP_MNT"
 f_network "$TMP_MNT" "$ETH_DEV" "$LOCALIP" "$GATEWAY" "$HSTNAME" "$DNSSERV"
+f_misc "$TMP_MNT" "$USERNAME" "$PASSWORD" "$GROUPLST"
+f_prepare_dot_config "$TMP_MNT" "$USERNAME"
 f_pacman_install "$TMP_MNT" "${LIB32_PKGS[@]}"
 
 f_end_time
