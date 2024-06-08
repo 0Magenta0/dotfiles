@@ -23,6 +23,7 @@ LICENSE_TEXT="\
 
 _BLACKLIST="\
   conf/boot/loader/loader.conf
+  conf/etc/i3/config
 "
 
 _TMP_LICENSE=
