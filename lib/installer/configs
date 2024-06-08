@@ -35,8 +35,8 @@ options rd.luks.name=$(blkid -s UUID -o value "/dev/${2}2")=cryptroot root=/dev/
 f_prepare_etc() {
   f_log 'Preparing /etc'
   f_cp conf/etc "$1"
-  f_exec genfstab -U "$3" '>>' "${3}/etc/fstab"
-  f_exec_t chmod 440 "${3}/etc/sudoers"
+  f_exec genfstab -U "$1" '>>' "${1}/etc/fstab"
+  f_exec_t chmod 440 "${1}/etc/sudoers"
 }
 
 # Configures some parts of the system.
