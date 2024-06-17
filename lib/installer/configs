@@ -48,13 +48,15 @@ f_prepare_misc() {
   f_exec_t arch-chroot "$1" hwclock --systohc
   f_exec_t arch-chroot "$1" locale-gen
 
-  f_exec_t arch-chroot "$1" mkinitcpio -P
+  f_exec arch-chroot "$1" mkinitcpio -P
 
   f_exec_t arch-chroot "$1" useradd -mG "$4" "$2"
   f_exec_t arch-chroot "$1" echo "${2}:${3}" '|' chpasswd
   f_exec_t arch-chroot "$1" echo "root:toor" '|' chpasswd
 
   f_exec_t arch-chroot "$1" systemctl enable --user pipewire
+
+  f_exec_t mkdir "${1}/home/${2}/Screenshots"
 }
 
 # Prepares the .config directory for certain user.
@@ -63,4 +65,5 @@ f_prepare_misc() {
 f_prepare_dot_config() {
   f_log "Preparing .config for ${2}"
   f_cp conf/.config "${1}/home/${2}/"
+  f_exec_t chown -R "${2}:${2}" "${1}/home/${2}/"
 }

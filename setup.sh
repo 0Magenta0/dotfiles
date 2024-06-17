@@ -82,12 +82,3 @@ f_pacman_install "$TMP_MNT" "${LIB32_PKGS[@]}"
 
 f_end_time
 
-# In chroot
-# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-# hwclock --systohc
-# locale-gen
-# /etc/hostname
-# passwd
-# mkinitcpio.conf -> systemd keyboard sd-encrypt
-# mkinitcpio -P
-
