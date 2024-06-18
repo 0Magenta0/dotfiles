@@ -14,7 +14,7 @@ source lib/common
 # -=[ Functions ]=- #
 # Prepares network in the newly installed system.
 #
-# f_network $mnt $dev $ip $gateway $hostname $dns 
+# f_network $mnt $dev $ip $gateway $hostname $dns $fallback_dns
 f_network() {
   f_log 'Preparing network'
 
@@ -33,7 +33,7 @@ DNS=${6}
 
   f_exec_t echo "'\
 [Resolve]
-DNS=${6}
+DNS=${6} ${7}
 '" '>' "${1}/etc/systemd/resolved.conf"
 
   f_exec_t arch-chroot "$1" systemctl enable systemd-networkd

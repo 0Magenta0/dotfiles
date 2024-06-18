@@ -39,6 +39,8 @@ f_prepare_etc() {
   f_exec_t chmod 440 "${1}/etc/sudoers"
 }
 
+# TODO: user not found (connot chpasswd)
+# TODO: root passwd doesn't work
 # Configures some parts of the system.
 #
 # f_prepare_misc $mnt_path $user $password $groups
@@ -59,6 +61,7 @@ f_prepare_misc() {
   f_exec_t mkdir "${1}/home/${2}/Screenshots"
 }
 
+# TODO: user not found (connot chown)
 # Prepares the .config directory for certain user.
 #
 # f_prepare_dot_config $mnt_path $user

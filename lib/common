@@ -34,7 +34,7 @@ f_log() {
 # f_warn $msg
 f_warn() {
   echo -e "${_CL}[$(date +"${DT_FMT}")${_ORANGE} WARN${_CL}]: ${*}${_CL}"
-  echo "[$(date +"${DT_FMT}") LOG]: ${*}" >> "$LOGS_F"
+  echo "[$(date +"${DT_FMT}") WARN]: ${*}" >> "$LOGS_F"
 }
 
 # Prints ERR message and logs it.
