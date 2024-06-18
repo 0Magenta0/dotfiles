@@ -18,7 +18,7 @@ exec_always --no-startup-id "killall -q polybar; polybar main &"
 exec_always --no-startup-id "xinput set-prop 9 'libinput Accel Speed' -0.7"
 
 # Set background color.
-exec --no-startup-id xsetroot -solid "#111111"
+exec --no-startup-id xsetroot -solid "#101020"
 
 # Start dmenu.
 bindsym Mod1+d exec --no-startup-id dmenu_run
