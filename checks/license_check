@@ -85,6 +85,10 @@ license_check() {
                replace_comment '#'
                compare_head 5 "$1"
                ;;
+         *.el)
+               replace_comment ';;'
+               compare_head 5 "$1"
+               ;;
              *)
                if [ "$(head -n 1 "$1")" = '#!/bin/bash' ]; then
                  replace_comment '#'
