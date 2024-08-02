@@ -4,6 +4,8 @@
 ;;  MIT License
 ;;
 
+(setq use-package-inject-hooks t)
+
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;layout            ; auie,ctsrnm is the superior home row
